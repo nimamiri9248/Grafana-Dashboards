@@ -1,0 +1,368 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "(inbound/outbound) over daily, monthly, and yearly periods",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 4,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bdrj6s68kibr4b"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "axisBorderShow": true,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 30,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "always",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "line"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 3,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bdrj6s68kibr4b"
+          },
+          "editorMode": "code",
+          "expr": "sum(increase(node_network_receive_bytes_total{device!~\"^(lo|veth|docker|br|tun)\"}[365d]))",
+          "instant": false,
+          "legendFormat": "Inbound Traffic",
+          "range": true,
+          "refId": "Inbound Traffic"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bdrj6s68kibr4b"
+          },
+          "editorMode": "code",
+          "expr": "sum(increase(node_network_transmit_bytes_total{device!~\"^(lo|veth|docker|br|tun)\"}[365d]))",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Outbound Traffic",
+          "range": true,
+          "refId": "Outbound Traffic"
+        }
+      ],
+      "title": "Daily Traffic",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bdrj6s68kibr4b"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-BlYlRd"
+          },
+          "custom": {
+            "axisBorderShow": true,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 30,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "always",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "line"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 10
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bdrj6s68kibr4b"
+          },
+          "editorMode": "code",
+          "expr": "sum(increase(node_network_receive_bytes_total{device!~\"^(lo|veth|docker|br|tun)\"}[30d]))",
+          "instant": false,
+          "legendFormat": "Inbound Traffic",
+          "range": true,
+          "refId": "Inbound Traffic"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bdrj6s68kibr4b"
+          },
+          "editorMode": "code",
+          "expr": "sum(increase(node_network_transmit_bytes_total{device!~\"^(lo|veth|docker|br|tun)\"}[30d]))",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Outbound Traffic",
+          "range": true,
+          "refId": "Outbound Traffic"
+        }
+      ],
+      "timeFrom": "30d",
+      "title": "Monthly Traffic",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bdrj6s68kibr4b"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-greens"
+          },
+          "custom": {
+            "axisBorderShow": true,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 30,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "always",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "line"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 20
+      },
+      "id": 1,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bdrj6s68kibr4b"
+          },
+          "editorMode": "code",
+          "expr": "sum(increase(node_network_receive_bytes_total{device!~\"^(lo|veth|docker|br|tun)\"}[365d]))",
+          "instant": false,
+          "legendFormat": "Inbound Traffic",
+          "range": true,
+          "refId": "Inbound Traffic"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bdrj6s68kibr4b"
+          },
+          "editorMode": "code",
+          "expr": "sum(increase(node_network_transmit_bytes_total{device!~\"^(lo|veth|docker|br|tun)\"}[365d]))",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Outbound Traffic",
+          "range": true,
+          "refId": "Outbound Traffic"
+        }
+      ],
+      "timeFrom": "365d",
+      "title": "Yearly Traffic",
+      "type": "timeseries"
+    }
+  ],
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-24h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Total Network Traffic History",
+  "uid": "bdrlnazmtqkn4e",
+  "version": 13,
+  "weekStart": ""
+}
